@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools >= 75.8.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "instantsfm"
+version = "0.1.0"
+description = "Fast and accurate SfM reconstruction with GPU acceleration"
+readme = "README.md"
+license = "CC-BY-NC-4.0"
+requires-python = ">=3.10.0"
+classifiers = [
+    "Programming Language :: Python",
+]
+
+dependencies = [
+    "numpy==1.26.4",
+    "opencv-python==4.10.0.84",
+    "pyyaml",
+    "matplotlib",
+    "scipy==1.13.0",
+    "scikit-sparse==0.4.15",
+    "tqdm==4.66.5",
+    "pyceres==2.3",
+    "kornia==0.8.0",
+    "viser==0.2.11",
+    "imageio-ffmpeg",
+    "torchmetrics[image]",
+    "tensorly",
+    "nerfview",
+    "tensorboard",
+    "scikit-learn",
+    "gradio",
+    "plotly",
+    "splines",
+    "jaxtyping",
+    "gsplat",
+    "fused-ssim @ git+https://github.com/rahul-goel/fused-ssim",
+]
+
+# [project.urls]
+# "Documentation" = "todo here"
+
+[project.scripts]
+ins-feat = "instantsfm.scripts.feat:entrypoint"
+ins-sfm = "instantsfm.scripts.sfm:entrypoint"
+ins-gs = "instantsfm.scripts.gs:entrypoint"
+
+[tool.setuptools.packages.find]
+include = ["instantsfm*"]
